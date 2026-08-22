@@ -1,0 +1,36 @@
+name: Protected clinical paths check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-protected-paths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: List changed files
+        id: changed
+        run: |
+          git diff --name-only origin/${{ github.base_ref }}...HEAD > changed_files.txt
+          cat changed_files.txt
+
+      - name: Check protected paths
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          PROTECTED_REGEX='^(oncocardio/(rules|risk|alerts|monitoring|provenance|identity)/|medicalcore/(identity|contracts|rules|provenance)/|docs/(architecture|domain)/)'
+          TOUCHED=$(grep -E "$PROTECTED_REGEX" changed_files.txt || true)
+          if [ -n "$TOUCHED" ]; then
+            echo "Protected files touched:"
+            echo "$TOUCHED"
+            if [[ "$PR_BODY" != *"APPROVED-BY-ARCHITECT"* ]]; then
+              echo "::error::PR touches protected clinical paths but lacks the 'APPROVED-BY-ARCHITECT' marker in the PR description. Do not merge without explicit architect approval."
+              exit 1
+            fi
+          else
+            echo "No protected paths touched."
+          fi

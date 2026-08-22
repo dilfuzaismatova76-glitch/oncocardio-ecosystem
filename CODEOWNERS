@@ -1,0 +1,23 @@
+# CODEOWNERS
+# Changes to these paths require review from the architect/lead
+# before merging. This covers clinical thresholds, rule/risk model
+# versioning, alert/monitoring control flow, provenance structure,
+# and patient identity matching/merge logic.
+#
+# Implementation assistants (including AI tools) may PROPOSE changes
+# here via PR, but merge must not proceed without explicit review.
+
+/docs/architecture/            @dilfuzaismatova76-glitch
+/docs/domain/                  @dilfuzaismatova76-glitch
+
+/medicalcore/identity/         @dilfuzaismatova76-glitch
+/medicalcore/contracts/        @dilfuzaismatova76-glitch
+/medicalcore/rules/            @dilfuzaismatova76-glitch
+/medicalcore/provenance/       @dilfuzaismatova76-glitch
+
+/oncocardio/rules/             @dilfuzaismatova76-glitch
+/oncocardio/risk/              @dilfuzaismatova76-glitch
+/oncocardio/alerts/            @dilfuzaismatova76-glitch
+/oncocardio/monitoring/        @dilfuzaismatova76-glitch
+/oncocardio/provenance/        @dilfuzaismatova76-glitch
+/oncocardio/identity/          @dilfuzaismatova76-glitch

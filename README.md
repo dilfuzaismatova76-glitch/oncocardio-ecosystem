@@ -1,3 +1,25 @@
+# OncoCardio / EchoExpert Ecosystem
+
+Cardio-oncology clinical decision support system (CDSS) ecosystem,
+built as independent desktop applications sharing a minimal common
+platform.
+
+- `EchoExpert.exe` — echocardiography study management
+- `OncoCardio.exe` — cardio-oncology clinical decision support
+
+## Start here
+
+- Architecture decisions: [`docs/architecture/`](docs/architecture)
+- Domain models & data contracts: [`docs/domain/`](docs/domain)
+- Contribution rules & roles: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+
+## Roles
+
+This project has a strict separation between architectural/clinical
+decisions and implementation. See `CONTRIBUTING.md` before opening
+a PR — some paths are protected and require explicit architect
+review (see `CODEOWNERS`).
+
 # Architecture Decision Records (ADR)
 
 Each ADR captures one frozen architectural or clinical-safety
