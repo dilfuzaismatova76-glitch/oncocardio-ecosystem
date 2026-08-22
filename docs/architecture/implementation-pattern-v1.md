@@ -228,6 +228,10 @@ items, such as:
 - TASK-003 (BSA reference values pending validation)
 - TASK-004 (protocol complete only in part; registry client is still
   open as a separate implementation item)
+- TASK-005 (`ImportedEchoMeasurement` still lacks the domain-layer
+  conditional validator required by section 4.2; the
+  `gls_vendor`/`valvular_disease_note` validation must be preserved
+  in the model before this task is considered closed)
 
 A task file is a specification, not proof of completion.
 
